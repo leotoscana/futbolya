@@ -14,6 +14,14 @@ public class Equipo {
 	public Equipo(){
 		}
 	
+	public Equipo(String nombre,int[][] ataque,int[][] defensa,int[][] gestacion,int[][] recuperacion) {
+		this.nombre=nombre;
+		this.ataque=ataque;
+		this.defensa=defensa;
+		this.gestacion=gestacion;
+		this.recuperacion=recuperacion;
+	}
+	
 	public Equipo(String nombre,ArrayList<Jugador> misJugadores) {
 		this.nombre = nombre;
 		this.misJugadores =  new ArrayList<Jugador>();

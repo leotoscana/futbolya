@@ -11,6 +11,8 @@ public class FutbolYa {
 		Jugador player3;
 		Equipo team;
 		
+		
+		
 		player1=new Jugador();
 		player1.miGesto(player1.getAtaque());
 		System.out.println("ok");
