@@ -1,5 +1,7 @@
 package com.leotoscana.FutbolYa;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class Equipo {
 	
@@ -59,40 +61,53 @@ public class Equipo {
 	}
 	
 	public void pGesto(int[][] gesto) {
-		int t=0;
+		float t=0;
+		DecimalFormat dec=new DecimalFormat("#.#");
 		for (int cont=0;cont < 4;cont++) {
 			for (int e=0;e < 4;e++) {
 				t = t + gesto[cont][e];
 			}
 		}
-		System.out.println(t);
 		for (int cont=0;cont < 4;cont++) {
 			String m="";
+			float p;
 			for (int e=0;e < 4;e++) {
-				m=m+" %"+((gesto[cont][e]*100)/t);
+				p=((gesto[cont][e]*100)/t);
+				m=m+" %"+dec.format(p);
 			}
 			System.out.println(m);
 		}
 	}
 	
 	public void prGesto(int[][] gesto) {
-		int t=0;
+		float t=0;
 		String m="";
-		int[] zonaP=new int[4];
+		float[] zonaP=new float[4];
+		DecimalFormat dec=new DecimalFormat("#.#");
 		for (int cont=0;cont < 4;cont++) {
-			int p=0;
+			float p=0;
 			for (int e=0;e < 4;e++) {
 				t = t + gesto[cont][e];
 				p = p + gesto[cont][e];
 			}
 			zonaP[cont]=p;
 		}
-		for (int i:zonaP) {
-			m=m+" %"+((i*100)/t);
+		for (float i:zonaP) {
+			m=m+" %"+dec.format(((i*100)/t));
 		}
 		System.out.println(m);
 	}
 	
+	public void miGesto(int[][] gesto) {
+		int zona=1;
+		for (int cont=0;cont < 4;cont++) {
+			for (int e=0;e < 4;e++) {
+				System.out.println("zona "+(zona++)+":");
+				Scanner leer=new Scanner(System.in);
+				gesto[cont][e] = leer.nextInt();
+			}
+		}
+	}
 
 	public String  getNombre() {return nombre;}
 	public void    setNombre(String nombre) {this.nombre = nombre;}
